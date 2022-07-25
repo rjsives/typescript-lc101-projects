@@ -3,7 +3,7 @@
 
 
 // Part 1: Declare (5) Variables With Type
-let spacecraftName: string = "Determiniation";
+let spacecraftName: string = "Determination";
 let speedMph: number = 17500;
 let kilometersToMars: number = 225000000;
 let kilometersToTheMoon: number = 384400;
@@ -22,16 +22,23 @@ let daysToMars: number = hoursToMars / 24;
 
 
 // Code an output statement here (use a template literal):
-console.log(`${spacecraftName} would take ${daysToMars} days to get to Mars.`)
+// console.log(`${spacecraftName} would take ${daysToMars} days to get to Mars.`)
 
 
 // Part 3: Create a Function ("getDaysToLocation")
-
+function getDaysToLocation(kilometersAway: number): number {
+    let milesAway: number = kilometersAway * milesPerKilometer;
+    let hoursAway: number = milesAway/speedMph;
+    let daysAway: number = hoursAway / 24;
+    return daysAway;
+}
 
 
 // Move your output statement from part 2 here. Update the template literal to call
 // the function and print the outputs for a Mars trip and a moon trip.
 
+console.log(`${spacecraftName} would take ${getDaysToLocation(kilometersToMars)} days to get to Mars.`)
+console.log(`${spacecraftName} would take ${getDaysToLocation(kilometersToTheMoon)} days to get to the Moon.`)
 
 
 
